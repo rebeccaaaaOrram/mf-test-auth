@@ -23,11 +23,11 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5173,
-    proxy: {
+ /*    proxy: {
       '/auth_app': {
         target: 'https://main--preeminent-fudge-e1265e.netlify.app',
         changeOrigin: true,
       },
-    },
+    }, */
   },
 });

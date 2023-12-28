@@ -61,7 +61,7 @@ const NewLogin: React.FC<NewLoginProps> = ({ onLogin, logoSrc }) => {
   }
 
   return (
-    <Flex minHeight="100vh" align="center" justify="center">
+    <Flex>
       <Box p={8} maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg">
         <Box textAlign="center">
           <Image src={logoSrc} alt="logo" />
