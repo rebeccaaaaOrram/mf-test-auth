@@ -1,7 +1,7 @@
-import Login from './components/Login'
+import NewLogin from './components/NewLogin'
 
 export default function App() {
   return (
-    <Login logoSrc="" onLogin={(username: string, password: string) => { console.log('Entrar') }}/>
+    <NewLogin logoSrc="" onLogin={(username: string, password: string) => { console.log('Entrar') }}/>
   )
 }
