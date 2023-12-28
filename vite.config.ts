@@ -9,7 +9,7 @@ export default defineConfig({
       name: "auth-app",
       filename: "remoteEntry.js",
       exposes: {
-        "./NewLogin": "./src/components/Login.tsx",
+        "./NewLogin": "./src/components/NewLogin.tsx",
       },
       shared: ["react"],
     }),
@@ -22,6 +22,6 @@ export default defineConfig({
   },
   server: {
     host: "0.0.0.0",
-    port: 80,
+    port: 5174,
   },
 });
