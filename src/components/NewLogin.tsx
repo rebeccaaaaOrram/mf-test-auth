@@ -108,4 +108,4 @@ const NewLogin: React.FC<NewLoginProps> = ({ onLogin, logoSrc }) => {
   )
 }
 
-export default NewLogin
+export { NewLogin }
