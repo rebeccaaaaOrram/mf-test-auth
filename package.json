@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview --port 80 --mode dev",
+    "preview": "vite preview --port 5173 --mode dev",
     "test": "jest --watchAll",
     "lint-fix": "npm run lint -- --fix",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
