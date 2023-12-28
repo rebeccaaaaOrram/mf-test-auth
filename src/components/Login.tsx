@@ -15,12 +15,12 @@ import {
 } from '@chakra-ui/react'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
 
-interface LoginProps {
-  onLogin: (username: string, password: string) => void;
+interface NewLoginProps {
+  onNewLogin: (username: string, password: string) => void;
   logoSrc: string;
 }
 
-const Login: React.FC<LoginProps> = ({ onLogin, logoSrc }) => {
+const NewLogin: React.FC<NewLoginProps> = ({ onNewLogin, logoSrc }) => {
   const [user, setUser] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
@@ -53,7 +53,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, logoSrc }) => {
   const onFinish = () => {
     try {
       resetSpinner()
-      onLogin(user, password)
+      onNewLogin(user, password)
     } catch (error) {
       resetSpinner()
       setError(true)
@@ -93,7 +93,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, logoSrc }) => {
             </InputRightElement>
           </InputGroup>
           <Button mt={4} colorScheme="teal" isLoading={load} onClick={onFinish}>
-            Login
+            NewLogin
           </Button>
           {error && (
             <Alert mt={4} status="error">
@@ -108,4 +108,4 @@ const Login: React.FC<LoginProps> = ({ onLogin, logoSrc }) => {
   )
 }
 
-export default Login
+export default NewLogin

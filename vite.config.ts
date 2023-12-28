@@ -9,7 +9,7 @@ export default defineConfig({
       name: "auth-app",
       filename: "remoteEntry.js",
       exposes: {
-        "./App": "./src/App.tsx",
+        "./NewLogin": "./src/components/Login.tsx",
       },
       shared: ["react"],
     }),
