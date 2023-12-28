@@ -1,0 +1,22 @@
+version: 2.1
+workflows:
+  build_analysis_deploy:
+    jobs:
+      - build_container_image
+      - deploy_on_k8s:
+          requires:
+            - build_container_image
+jobs:
+  build_container_image:
+    machine: true
+    resource_class: onprem/selfhosted_oracle
+    steps:
+      - checkout
+      - run: docker build -t gru.ocir.io/gruvymtngo4q/$((echo "${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}" | awk '{print tolower($0)}') | sed 's/\.//g'):"$CIRCLE_SHA1" .
+      - run: docker push gru.ocir.io/gruvymtngo4q/$((echo "${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}" | awk '{print tolower($0)}') | sed 's/\.//g'):"$CIRCLE_SHA1"
+  
+  deploy_on_k8s:
+    machine: true
+    resource_class: onprem/selfhosted_oracle
+    steps:
+      - run: python3 /cicd/generator.py --repoName=${CIRCLE_PROJECT_REPONAME} --envList=ASPNETCORE_ENVIRONMENT:${CIRCLE_BRANCH} --gateway=external --domain=orram --maxMem=512M --minReplicas=1 --maxReplicas=1 --buildNumber=${CIRCLE_SHA1} --subdomain=backofficeorram --branch=${CIRCLE_BRANCH} --registryRegion=us-east-1
