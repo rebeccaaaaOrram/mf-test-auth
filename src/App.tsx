@@ -1,4 +1,4 @@
-import NewLogin from './components/NewLogin'
+import { NewLogin } from './components/NewLogin'
 
 export default function App() {
   return (
