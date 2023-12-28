@@ -16,11 +16,11 @@ import {
 import { FiEye, FiEyeOff } from 'react-icons/fi'
 
 interface NewLoginProps {
-  onNewLogin: (username: string, password: string) => void;
+  onLogin: (username: string, password: string) => void;
   logoSrc: string;
 }
 
-const NewLogin: React.FC<NewLoginProps> = ({ onNewLogin, logoSrc }) => {
+const NewLogin: React.FC<NewLoginProps> = ({ onLogin, logoSrc }) => {
   const [user, setUser] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
@@ -53,7 +53,7 @@ const NewLogin: React.FC<NewLoginProps> = ({ onNewLogin, logoSrc }) => {
   const onFinish = () => {
     try {
       resetSpinner()
-      onNewLogin(user, password)
+      onLogin(user, password)
     } catch (error) {
       resetSpinner()
       setError(true)
